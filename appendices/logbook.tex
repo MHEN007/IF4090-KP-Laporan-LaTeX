@@ -1,0 +1,101 @@
+\chapter{\textit{Log Activity}\label{appendix:B}}
+\textit{Pada Bagian ini berisi log activity dengan format sebagai berikut}
+    \begin{longtable}{|p{5em}|p{10em}|p{15em}|}
+    \caption{\textit{Log Activity} Kerja Praktik}\\
+    \hline
+        \centering Minggu/Tgl & \centering Kegiatan & \centering Hasil \tabularnewline \hline
+        1/12 Juni & Dev: Eksplorasi model implementasi \newline 
+Sync: Pemberian H/W dan Kredensial, Requirement Gathering & Kredensial sudah dibuat (sisa MS Teams), H/W sudah diberikan, Sudah mendapatkan gambaran kebutuhan umum dari project, Kebutuhan model deep learning yang tepat adalah YOLO untuk ATM Cleanliness dan RotNet yang berbasis CNN pada penekanan prediksi derajat kemiringan  \\ \hline
+        1/13 Juni & Dev: Environment and Data Setup, Perancangan Prototipe Model OCR Document Orientation & Environment dan data untuk keperluan OCR sudah diberikan dan disiapkan, Merancang prototipe model OCR (Masih terdapat kesalahan jumlah input neuron dan output neuron) \\ \hline
+        1/14 Juni & Dev: Perancangan Prototipe Model OCR Document Orientation & Model sudah terbuat, perlu data yang lebih banyak atau pengubahan hyperparameter pada model agar mendapatkan hasil yang lebih maksimal. Akan dicoba untuk diimplementasikan pada target data yang akan diberikan. \\ \hline
+        2/19 Juni & Dev: Pembuatan Model OCR Document Orientation & Dev: Model untuk data production sudah selesai. Pipeline sudah dibuat. Akan dituning untuk meningkatkan akurasi dengan metode: penambahan epoch, restrukturisasi model, dan hyperparameter tuning \\ \hline
+        2/20 Juni & Dev: Perbaikan Model OCR Document Orientation & Dev: Retraining model karena model memprediksi berdasarkan background hitam hasil praproses gambar \\ \hline
+        2/21 Juni & Dev: Pembuatan Model OCR Document Orientation & Dev: Training menggunakan Pretrained model Resnet 50 dan Mobilenet memberikan hasil yang kurang \\ \hline
+        3/24 Juni & Dev: Pembuatan Model OCR Document Orientation & Dev: Retraining dengan metode resizing yang berbeda, metode binarisasi menggunakan mean memberikan hasil akurasi 90\% hingga 92.16\% pada dataset test. Eksperimen menggunakan model YOLO dimulai dengan menyiapkan model \\ \hline
+        3/25 Juni & Dev: Pembuatan Model OCR Document Orientation & Dev: Pembuatan model Detecto menggunakan kakas bantuan internal sebagai model perbandingan. Mencapai akurasi 78\% \\ \hline
+        3/26 Juni & Dev: Eksplorasi Data Document Quality & Dev: Eksplorasi pada gambar dengan kualitas cahaya redup dan gambar tidak jelas (blur). Analisis menggunakan metode preprocessing edge detection pada gambar \\ \hline
+        4/1 Juli & Dev: Pembuatan Model OCR Document Quality & Dev: Pembuatan Model OCR menggunakan CNN. Label yang digunakan: Blur, Bright, dan Dark. Model kasar berhasil dibuat \\ \hline
+        4/2 Juli & Dev: Pembuatan Model OCR Document Quality \newline Sync: Diskusi dengan tim user terkait project OCR & Melanjutkan pembuatan model. Mencoba untuk memisahkan model antara model blur dan model brightness. Model menunjukkan hasil yang lebih baik untuk model blur menggunakan metode deteksi edge Canny \\ \hline
+        4/3 Juli & Dev: Tuning Model OCR Document Quality & Mengubah model blur dengan menggunakan pretrained Resnet dan MobileNet. Mengubah model brightness dengan pretrained Resnet, MobileNet, dan plain CNN. Hasil model blur lebih baik dengan Resnet50 dan model brightness dengan plain CNN \\ \hline
+        4/4 Juli & Dev: Tuning Model OCR \newline 
+Sync: Persiapan Diskusi & Dev: Mengubah metode praproses dengan menggunakan normalisasi value pixel. Mendapatkan nilai loss per epoch yang lebih baik.  \newline 
+Sync: Persiapan diskusi hasil sementara dengan tim user dengan PPT \\ \hline
+        4/5 Juli & Dev: Tuning Model OCR \newline 
+Sync: Weekly Meeting \newline 
+Sync: Penjelasan dataset kerapihan ATM & Dev: Mengubah model blur dengan menggunakan SVM. Akurasi untuk kelas blur 96.07\%, kelas dark 87.02\%, kelas bright 76.02\% \newline 
+Sync: Weekly meeting dengan Tim AI \newline 
+Sync: Mendapatkan dataset dan penjelasan singkat terkait dataset. Sekaligus pendekatan yang akan diambil untuk pembuatan model \\ \hline
+        5/8 Juli & Dev: Labeling Object dan Modelling Awal Model Kerapihan ATM & Labeling object-object yang terdapat pada ATM dan membuat model kasaran. Kinerja model masih kurang, namun dapat mendeteksi beberapa objek dengan baik \\ \hline
+        5/9 Juli & Dev: Melanjutkan Pelatihan Model Kerapihan ATM & Menambahkan Epoch pada pelatihan model dan mengedit label. Mengubah approach untuk mengidentifikasi ATM terlebih dahulu,lalu mencari objek yang melanggar \\ \hline
+        5/10 Juli & Dev: Modelling Lanjutan \newline 
+Sync: Akan dibuat ringkasan untuk diskusi dengan tim \newline 
+Sync: Meeting dan Diskusi dengan User & Implementasi Approach dan penambahan data label. Model dapat mengidentifikasi dengan lebih baik. \newline 
+Progress Report dan Testing Kinerja dengan data user terkait proyek \\ \hline
+        5/11 Juli & Dev: Pembuatan API untuk OCR Features \newline 
+Sync: Weekly Meeting & Dev: Pembuatan API untuk diberikan kepada user \newline 
+Sync: Weekly Meeting \\ \hline
+        5/12 Juli & Dev: Penambahan use case KTP \newline 
+Dev: Pembuatan API & Dev: Penambahan data untuk rotasi KTP dan melanjutkan pembuatan API \newline 
+Dev: Melanjutkan pembuatan API \\ \hline
+        6/15 Juli & Dev: Penambahan use case dokumen pdf pada API & API dapat menerima dokumen pdf dan gambar biasa dan memprediksinya \\ \hline
+        6/16 Juli & Dev: Penambahan use case multiple dokumen pdf pada API \newline 
+Dev: Dokumentasi API & Dev: Implementasi dapat menerima beberapa dokumen untuk diprediksi \newline 
+Dev: API sudah didokumentasikan beserta keluarannya \\ \hline
+        6/17 Juli & Dev: Perbaikan konversi file .tif/.tiff (Ad Hoc) \newline 
+Sync: Diskusi file input tambahan & Dev: Memperbaiki fungsi konversi gambar .tif/.tiff (existing) \newline 
+Sync: Ditemukan masalah karena file masukan memiliki gambar yang tidak standar dan rapih, e.g. masukan gambar dalam pdf yang memiliki margin tebal \\ \hline
+        6/18 Juli & Dev: Perbaikan fungsi konversi .tif/.tiff dan Weekly Meeting \newline 
+Sync: Weekly Meeting & Dev: Melanjutkan perbaikan fungsi konversi .tiff/.tif \newline 
+Sync: Update progress model untuk rotasi dan quality detection beserta app demo yang telah dibuat. Juga terkait progress file konversi. Menyampaikan progress report bahwa model sudah selesai namun terdapat masalah terkait data tambahan dari user \\ \hline
+        6/19 Juli & Dev: Migrasi Demo App ke Gradio & Dev: Migrasi demo app ke Gradio \\ \hline
+        7/22 Juli & Dev: Testing pada dataset test baru untuk proyek OCR Document Quality & Dev: Testing pada dataset test baru \\ \hline
+        7/23 Juli & Dev: Retraining Model  untuk OCR Document Quality & Dev: Retraining Model \\ \hline
+        7/24 Juli & Dev: Retraining Model untuk OCR Document Quality \newline
+Sync: Meeting dengan User & Dev: Retraining Model \newline 
+Sync: Meeting dengan User \\ \hline
+        7/25 Juli & Dev: Retraining Model untuk OCR Document Quality \newline 
+Sync: Weekly Meeting & Dev: Retraining Model \newline 
+Sync: Weekly Meeting \\ \hline
+        7/26 Juli & Dev: Retraining Model untuk OCR Document Quality & Dev: Retraining Model \\ \hline
+        8/29 Juli & Dev: Retraining Model untuk Document Quality & Dev: Retraining model blur selesai dan telah diintegrasikan pada implementasi \\ \hline
+        8/30 Juli & Dev: Persiapan Deployment & Dev: Refactoring struktur proyek untuk persiapan deployment dengan Jenkins \\ \hline
+        8/31 Juli & Dev: Deployment & Dev: Deployment; Testing untuk fungsi konversi .tif ke gambar dengan data yang gagal di production \newline
+Doc: Dokumentasi fungsi-fungsi \\ \hline
+        8/1 Agustus & Sync: Weekly Meeting dan User Meeting & Sync: Laporan progress pekerjaan kepada tim internal \newline 
+Sync: Presentasi kepada user terkait kinerja dan akurasi model saat ini \\ \hline
+        8/2 Agustus & Dev: Perbaikan API dan Perbaikan Deployment & Dev: Menambahkan output berupa confidence level dan memperbaiki deployment \\ \hline
+        9/5 Agustus & Dev: Memperbaiki error API & Ditemukan error pada API, pada konversi tiff dan response yang tidak timbul di production, dan storage yang membengkak \\ \hline
+        9/6 Agustus & Dev: Memperbaiki error API & Perbaikan pada konversi tiff dengan menaikkan versi library \\ \hline
+        9/7 Agustus & Dev: Memperbaiki error API \newline
+Sync: Meeting dengan tim User & Perbaikan storage dengan melakukan scheduling untuk penghapusan dokumen \\ \hline
+        9/8 Agustus & Dev: Memperbaiki error API \newline
+Sync: Weekly meeting & ~ \\ \hline
+        9/9 Agustus & Dev: Memperbaiki pembacaan ekstensi file \newline
+Dev: Data exploration and preparation & Mengubah cara pembacaan ekstensi file \newline
+Persiapan dataset untuk test dan training \\ \hline
+        10/12 Agustus & Dev: Contour and OCR untuk OCR Document Classifier & Tidak membuat model, namun hanya deteksi contour pada dokumen dan menggunakan OCR untuk mengklasifikasikan dokumen. Pada data test didapatkan akurasi sebagai berikut: \newline
+Akta Kematian: 66.6\% (Total 27 Data) \newline
+Akta Cerai: 76.67\% (Total 30 Data) \newline
+Akta Kawin: 87.31\% (Total 63 data) \newline
+Kartu Keluarga: 34.29\% (Total 70 data) \\ \hline
+        10/13 Agustus & Dev: Detection dengan Detecto & Labelling dataset train selesai dan sudah memulai proses training. \newline
+Hasil pengujian mendapatkan hasil sebagai berikut: \newline
+Akta Kematian: 75.93\% (54 Data) \newline
+Akta Cerai: 90\%(50 Data) \newline
+Akta Kawin: 100\% (63 data) \newline
+Kartu Keluarga: 95.71\% (70 data) \\ \hline
+        10/14 Agustus & Dev: Perbandingan dengan Existing OCR API & Menggunakan existing OCR di API milik divisi, didapatkan inference time yang lebih baik dan kinerja yang lebih baik. Untuk akurasi akta kematian meningkat ke angka 91.84\% \\ \hline
+        10/15 Agustus & Sync: Weekly Meeting \newline
+Dev: Menambahkan model ke Gradio & Model akan ditambahkan label tambahan berupa jenis dokumen yang lain \newline
+Model sudah ditambahkan ke Gradio \\ \hline
+        10/16 Agustus & Dev: Penambahan tipe dokumen baru & Training dengan jenis dokumen yang baru \\ \hline
+        11/19 Agustus & Dev: Benchmarking existing model dan model baru & Tanpa confidence level, model yang baru memiliki akurasi yang lebih baik daripada model existing. Akan tetapi, jika diberikan pembatasan level pada confidence level, maka akan menurunkan nilai akurasi. Batasan level sekarang adalah pada angka 0.8 atau 80\% \\ \hline
+        11/20 Agustus & Dev: Penambahan data training dan retraining & Penambahan data training untuk meningkatkan akurasi. Terjadi penurunan akurasi secara keseluruhan. \\ \hline
+        11/21 Agustus & Dev: Penambahan data training dan retraining & Ada beberapa label yang mendapatkan peningkatan akurasi dan tetap ada yang mengalami penurunan akurasi \\ \hline
+        11/22 Agustus & Dev: Merapihkan project & Persiapan untuk penyerahan project kepada perusahaan telah dilakukan \\ \hline
+        11/23 Agustus & Dev: Merapihkan project & Persiapan untuk penyerahan project kepada perusahaan telah dilakukan \\ \hline
+        12/26 Agustus & Sync: Pembuatan presentasi hasil pekerjaan & Presentasi sudah dibuat dan diberikan untuk direviu \\ \hline
+        12/27 Agustus & Sync: Perbaikan presentasi hasil pekerjaan & \\ \hline
+        12/29 Agustus & Sync: Presentasi \newline Sync: Weekly Meeting & \\ \hline
+        12/30 Agustus & Sync: Knowledge transfer & Melakukan knowledge transfer ke mentor terkait pekerjaan \\ \hline
+    \end{longtable}

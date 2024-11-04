@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT EDIT HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper, 12pt]{report}
+
+\input{config/config.sty}
+
+\bibliographystyle{IEEEtran}
+
+\makeatletter
+
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%% START EDIT HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ubah bagian judul sesuai kebutuhan
+\title{$<$Judul Topik KP$>$}
+
+% Ubah penulis sesuai kebutuhan
+\author{$<$Nama$>$ / $<$NIM$>$}
+
+% Ubah tahun sesuai kebutuhan
+\date{}
+
+% Ubah tempat pelaksanaan kerja praktik
+\newcommand{\perusahaanKP}{$<$Nama Perusahaan$>$}
+    
+\begin{document}
+    \clearpage
+    
+    \include{chapters/Cover}
+    
+    \pagenumbering{roman}
+    
+    \pagestyle{plain}
+    
+    \addcontentsline{toc}{chapter}{Lembar Pengesahan Program Studi Teknik Informatika}
+    \include{chapters/Pengesahan_Program_Studi}
+    
+    \addcontentsline{toc}{chapter}{Lembar Pengesahan}
+    \include{chapters/Lembar_Pengesahan}
+    
+    \addcontentsline{toc}{chapter}{Abstraksi}
+    \include{chapters/Abstraksi}
+    
+    \addcontentsline{toc}{chapter}{Kata Pengantar}
+    \include{chapters/Kata_Pengantar}
+    
+    \renewcommand{\baselinestretch}{1}
+    \addcontentsline{toc}{chapter}{Daftar Isi}
+    \tableofcontents
+    \updatechaptername
+    \newpage
+    
+    \addcontentsline{toc}{chapter}{Daftar Gambar}
+    \listoffigures
+    \newpage
+    
+    \addcontentsline{toc}{chapter}{Daftar Tabel}
+    \listoftables
+    
+    \newpage
+    
+    % Urusan Halaman
+    \renewcommand{\baselinestretch}{1.5}
+    \pagestyle{fancy}
+    \fancyhead{}
+    \fancyfoot{}
+    \fancyhead[RH]{\thepage}
+    \renewcommand{\thepage}{\thechapter-\arabic{page}}
+
+    % BAB DIMASUKKAN DI SINI
+    \setcounter{page}{1}
+    \include{chapters/Pendahuluan}
+    \setcounter{page}{1}
+    \include{chapters/Organisasi_atau_Lingkungan_Kerja_Praktek}
+    \setcounter{page}{1}
+    \include{chapters/Bab-3}
+    \setcounter{page}{1}
+    \include{chapters/Penutup}
+    
+    % DAFTAR PUSTAKA IEEE
+    \pagenumbering{roman}
+    \setcounter{page}{9}
+    \addcontentsline{toc}{chapter}{Referensi}
+    \bibliography{references/refs}
+    \newpage
+    
+    % LAMPIRAN DIMASUKKAN DI SINI
+    \titleformat{\chapter}[block]
+    {\bfseries}
+    {\chaptertitlename \ \thechapter.}
+    {5pt}
+    {\vspace{0pt}}
+    
+    \renewcommand{\thepage}{\thechapter-\arabic{page}}
+    
+    \appendix % Sertakan untuk memulai bagian baru
+    \updatechaptername
+    \makeatletter
+    \addtocontents{toc}{\protect\renewcommand*{\cftchapnumwidth}{5.5em}}
+    \makeatother
+    \setcounter{page}{1}
+    \include{appendices/tor}
+
+    \setcounter{page}{1}
+    \include{appendices/logbook}
+\end{document}

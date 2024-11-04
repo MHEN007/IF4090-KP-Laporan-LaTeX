@@ -1,0 +1,128 @@
+\usepackage{sectsty}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{times}
+\usepackage{graphicx} % For images
+\usepackage{listings} % For code snippets
+\usepackage[utf8]{inputenc}
+\usepackage[top=4cm, left=4cm, bottom=3cm, right=3cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\usepackage[indonesian]{babel}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tocloft}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{titling}
+
+% Translation of Chapter, Figure, and Table to Indonesian %
+\renewcommand{\figurename}{Gambar}
+\renewcommand{\chaptername}{Bab}
+\renewcommand{\tablename}{Tabel}
+\renewcommand{\contentsname}{Daftar Isi}
+\renewcommand{\appendixname}{Lampiran}
+% \renewcommand{\bibname}{Daftar Pustaka}
+\addto{\captionsindonesian}{\renewcommand{\bibname}{Referensi}}
+\renewcommand{\listfigurename}{Daftar Gambar}
+\renewcommand{\listtablename}{Daftar Tabel}
+
+% Document Configuration
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\renewcommand{\cftbeforetoctitleskip}{0pt}
+\renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill\hfill}
+\renewcommand{\cftaftertoctitleskip}{-0.5pt}
+
+\renewcommand{\cftbeforeloftitleskip}{0pt}
+\renewcommand{\cftloftitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftafterloftitleskip}{-0.5pt}
+
+\renewcommand{\cftbeforelottitleskip}{0pt}
+\renewcommand{\cftlottitlefont}{\hfill\normalsize\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftafterlottitleskip}{-0.5pt}
+
+\renewcommand{\cftchapfont}{\normalsize}
+\renewcommand{\cftchappagefont}{\normalsize}
+\renewcommand{\cftsecfont}{\normalsize}
+\renewcommand{\cftsubsecfont}{\normalsize} 
+
+\newlength{\tocchapwidth}
+\renewcommand{\cftchappresnum}{\chaptername\ }
+\settowidth{\tocchapwidth}{\cftchappresnum}
+\newlength{\tocchapafternumwidth}
+\settowidth{\tocchapafternumwidth}{\cftchapaftersnum}
+\addtolength{\cftchapnumwidth}{\tocchapwidth}
+% \addtolength{\cftchapnumwidth}{\tocchapafternumwidth}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+\makeatletter
+\newcommand*\updatechaptername{%
+	\addtocontents{toc}{\protect\renewcommand*\protect\cftchappresnum{\@chapapp\ }}
+        
+}
+\makeatother
+
+\newlength{\toffigwidth}
+\renewcommand{\cftfigpresnum}{\figurename\ }
+\settowidth{\toffigwidth}{\cftfigpresnum}
+\newlength{\toffigafternumwidth}
+\settowidth{\toffigafternumwidth}{\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\toffigwidth}
+% \addtolength{\cftchapnumwidth}{\tocchapafternumwidth}
+\renewcommand{\cftfigdotsep}{\cftdotsep}
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+
+\newlength{\tottabwidth}
+\renewcommand{\cfttabpresnum}{\tablename\ }
+\settowidth{\tottabwidth}{\cfttabpresnum}
+\newlength{\tottabafternumwidth}
+\settowidth{\tottabafternumwidth}{\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\tottabwidth}
+% \addtolength{\cftchapnumwidth}{\tocchapafternumwidth}
+\renewcommand{\cfttabdotsep}{\cftdotsep}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+
+\setlength{\cftbeforechapskip}{1pt}
+\setlength{\cftbeforesecskip}{1pt}    
+\setlength{\cftbeforefigskip}{1pt}
+\setlength{\cftbeforetabskip}{1pt}
+
+\titleformat{\chapter}[block]
+{\centering\normalsize\bfseries}
+{\chaptertitlename\  \thechapter}
+{3pt}
+{\vspace{0pt}}
+[\vspace{-1.5em}]
+
+\titleformat{\section}[hang]
+{\normalsize\bfseries}
+{\thesection}
+{1em}
+{\bfseries}
+[\vspace{-0.5em}]
+
+\titleformat{\subsection}[hang]
+{\normalsize\bfseries}
+{\thesubsection}
+{1em}
+{\bfseries}
+[\vspace{-0.5em}]
+
+\renewcommand{\baselinestretch}{1.5}
+
+\titlespacing{\chapter}{0em}{-2em}{3em}
+% \nocite{*} % Kalau gak ada yang dimasukkan ke referensi bodynote.
+
+\makeatletter
+
+\makeatother

@@ -1,0 +1,61 @@
+\chapter{Introduction to \LaTeX}
+\section{Why this Template}
+Template ini dibuat untuk menyeragamkan laporan untuk tugas besar mata kuliah yang berada di bawah Laboratorium Basis Data. Template ini dibuat menggunakan \LaTeX, sebuah \textit{word processor} berbasis Tex yang dibuat oleh Donald Knuth\cite{knuth:1984}. Para peserta mata kuliah di bawah Laboratorium Basis Data dipersilakan untuk mempelajari struktur laporan yang diberikan dalam template ini dan juga mempelajari \LaTeX.
+
+Dengan menggunakan \LaTeX\  maka Anda dapat lebih fokus terhadap isi dari dokumen Anda dibandingkan melakukan \textit{layouting}, khususnya gambar dan tabel. Pada dokumen ini, kami berikan contoh-contoh penulisan dalam \LaTeX. Contoh-contoh yang kami berikan meliputi list (ordered dan unordered), gambar, tabel, kode program, daftar pustaka, dan lampiran. File main.tex menjadi driver dari compiler. Untuk setiap Bab, masukkan ke dalam folder chapters. Untuk setiap lampiran, masukkan ke dalam folder appendices. Masukkan daftar pustaka Anda dalam refs.bib. Gunakan perintah nocite\{*\} agar tidak perlu memasukkan referensi untuk setiap pustaka yang Anda berikan dalam dokumen ini. Dengan demikian jika referensi tidak diberikan maka daftar pustaka Anda dapat dikeluarkan semua.
+
+\section{List dalam \LaTeX}
+\paragraph{\textit{Ordered List}} Berikut adalah contoh list angka dalam \LaTeX
+\begin{enumerate}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+    \item Item 4
+\end{enumerate}
+
+\paragraph{\textit{Unordered List}}Berikut adalah contoh list itemize dalam \LaTeX
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+    \item Item 4
+\end{itemize}
+
+\section{Gambar dan Tabel}
+Untuk menunjuk pada suatu gambar atau tabel atau rumus matematika, jangan gunakan kata seperti 'di bawah ini, di samping ini, di atas.' Gunakan perintah ref\{nama-label\} untuk menunjuk pada gambar atau tabel atau rumus matematika. Untuk gambar atau tabel, sebaiknya dienkapsulasi dalam figure atau table sebelum memberikan label yang terikat pada caption. Anda dapat melihat contoh pada subbab \ref{subsec: image} dan \ref{subsec: table}. Dengan menggunakan perintah ref juga, jika penomoran berubah, maka akan diperbaharui secara otomatis.
+
+\subsection{Memasukkan Gambar}\label{subsec: image}
+Gambar \ref{fig:ganesha-sampul} adalah contoh gambar dalam \LaTeX.
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.05]{img/logo_itb_sampul.png}
+    \caption{Logo ITB untuk Keperluan Sampul}
+    \label{fig:ganesha-sampul}
+\end{figure}
+
+\subsection{Memasukkan Tabel}\label{subsec: table}
+Tabel \ref{tab:tabel-contoh} adalah contoh tabel dalam \LaTeX.
+\begin{table}
+    \centering
+    \begin{tabular}{cc}
+        \hline
+        Kolom 1 & Kolom 2\\
+        \hline
+        Contoh 1 & 1 adalah angka pertama \\
+        Contoh 2 & 2 adalah angka kedua \\
+        \hline
+    \end{tabular}
+    \caption{Daftar Contoh}
+    \label{tab:tabel-contoh}
+\end{table}
+
+\section{Snippet Kode}
+Listing \ref{code:sayhi} dan \ref{code:trigger} \footnote{Kami berikan bonus berupa contoh query trigger di SQL, silakan dimanfaatkan bagi peserta kuliah IF2240 dan IF2140} merupakan contoh memasukkan snippet pada \LaTeX \ dengan bahasa SQL. Disarankan Anda mengumpulkan terlebih dahulu kode Anda dan dimasukkan pada folder snippet agar Anda dapat melakukan debugging pada file itu, bukan pada \LaTeX. Label pada listing dapat dimasukkan pada bagian opsi (lihat contoh penulisan snippet). Untuk semua kode program yang Anda masukkan, wajib dimasukkan menggunakan listings ini. Referensi pembelajaran dapat diambil dari \url{https://www.overleaf.com/learn/latex/Code_listing}.
+
+\begin{lstlisting}[language=SQL, basicstyle=\ttfamily\small, frame=single, numbers=left, caption={SayHi}, showstringspaces=false, breaklines=True, label={code:sayhi}]
+SELECT std.name as student_name, lec.name as supervisor_name
+FROM student std inner join advisors adv on std.nim = std.nim inner join lectures lec on adv.nip = lec.nip
+WHERE std.name LIKE 'A__%';
+\end{lstlisting} %nulis langsung
+
+\lstinputlisting[language=SQL, basicstyle=\ttfamily\small, frame=single, numbers=left, caption={SQL Trigger Example}, label={code:trigger}, breaklines = True]{snippet/trigger.sql} % Input dari file
