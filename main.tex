@@ -3,7 +3,7 @@
 
 \input{config/config.sty}
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{ieeetr}
 
 \makeatletter
 
@@ -45,17 +45,15 @@
     \renewcommand{\baselinestretch}{1}
     \addcontentsline{toc}{chapter}{Daftar Isi}
     \tableofcontents
-    \updatechaptername
-    \newpage
+    \clearpage
     
     \addcontentsline{toc}{chapter}{Daftar Gambar}
     \listoffigures
-    \newpage
+    \clearpage
     
     \addcontentsline{toc}{chapter}{Daftar Tabel}
     \listoftables
-    
-    \newpage
+    \clearpage
     
     % Urusan Halaman
     \renewcommand{\baselinestretch}{1.5}
@@ -75,30 +73,31 @@
     \setcounter{page}{1}
     \include{chapters/Penutup}
     
+    \titlecontents{chapter}[0em]{}{\appendixname~\thecontentslabel\quad}{}{\titlerule*[0.8pc]{.}\contentspage}
+    
     % DAFTAR PUSTAKA IEEE
     \pagenumbering{roman}
-    \setcounter{page}{9}
+    \setcounter{page}{9}        
+    \cleardoublepage
+    \phantomsection
     \addcontentsline{toc}{chapter}{Referensi}
     \bibliography{references/refs}
     \newpage
     
-    % LAMPIRAN DIMASUKKAN DI SINI
+    % LAMPIRAN DIMASUKKAN DI SINI  
+    \appendix
     \titleformat{\chapter}[block]
     {\bfseries}
-    {\chaptertitlename \ \thechapter.}
+    {\chaptertitlename~\thechapter.}
     {5pt}
     {\vspace{0pt}}
     
     \renewcommand{\thepage}{\thechapter-\arabic{page}}
     
-    \appendix % Sertakan untuk memulai bagian baru
-    \updatechaptername
-    \makeatletter
-    \addtocontents{toc}{\protect\renewcommand*{\cftchapnumwidth}{5.5em}}
-    \makeatother
     \setcounter{page}{1}
     \include{appendices/tor}
+    \clearpage
 
     \setcounter{page}{1}
-    \include{appendices/logbook}
+    \include{appendices/logbook}    
 \end{document}
